@@ -1,4 +1,7 @@
-class Curso(var nome: String, var codigoCurso: Int, var professorTitular: ProfessorTitular, var professorAdjunto: ProfessorAdjunto, var maxAlunos: Int) {
+class Curso(var nome: String, var codigoCurso: Int, var maxAlunos: Int) {
+
+    var professorTitular: ProfessorTitular? = null
+    var professorAdjunto: ProfessorAdjunto? = null
 
     val alunosMatriculados = mutableListOf<Aluno>()
 
