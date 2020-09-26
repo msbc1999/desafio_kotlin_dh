@@ -64,4 +64,19 @@ class DigitalHouseManager {
         println("Professores alocados com sucesso!")
     }
 
+    fun consultarCursosDoAluno(codigoAluno: Int) {
+        val aluno = alunos.firstOrNull { it.codigoAluno == codigoAluno }
+        if (aluno == null) {
+            println("Aluno não cadastrado")
+            return
+        }
+        val sb = StringBuffer()
+        matriculas.forEach {
+            if (it.aluno.equals(aluno)) {
+                if (sb.isEmpty()) sb.append("O aluno ${aluno.nome} está matriculado no(s) curso(s): ${it.curso.nome}") else sb.append(",  ${it.curso.nome}")
+            }
+        }
+        if (sb.isEmpty()) println("O aluno ${aluno.nome} não está matriculado em nenhum curso!") else println(sb)
+    }
+
 }
